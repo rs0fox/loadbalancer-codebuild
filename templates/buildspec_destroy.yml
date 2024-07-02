@@ -1,0 +1,33 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      # Install Terraform
+      - sudo yum install -y yum-utils
+      - sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+      - sudo yum install -y terraform
+
+  pre_build:
+    commands:
+      - cd dev-env
+      # Print versions for verification
+      - terraform --version
+      - aws --version
+
+  build:
+    commands:
+      # Initialize Terraform (if not already initialized)
+      - terraform init -input=false
+
+      # Perform Terraform validate (optional)
+      - terraform validate
+
+      # Destroy Terraform resources
+      - terraform destroy -input=false -auto-approve
+
+artifacts:
+  files:
+    - '**/*'
