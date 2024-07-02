@@ -15,7 +15,7 @@ variable "vpc_tag_name" {
 
 variable "access_ip" {
  type = string
- default = "202.179.69.227/32"
+ default = "103.197.75.241/32"
 }
 
 variable "public_cidrs" {
@@ -40,7 +40,7 @@ variable "vol_size" {
 
 variable "instance_key_name" {
  type = string
- default = "chetan-mumbai"
+ default = "hp"
 }
 
 variable "instance_count" {
