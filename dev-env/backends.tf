@@ -1,7 +1,7 @@
 terraform {
  backend "s3" {
-  bucket = "chetan-tfstate"
+  bucket = "rs0fox-loadbalancer-codebuild"
   key = "tfstate/dev-env-lb.tfstate"
-  region = "ap-south-1"
+  region = "us-east-1"
  }
 }
